@@ -1,3 +1,4 @@
+# Switch each of the two relays on for 10 seconds each as a test of the relay board
 import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
