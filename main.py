@@ -12,7 +12,7 @@ import digitalio
 import adafruit_max31855
 
 # Import the Flask libraries for displaying an html page and initiate
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 # Set the model and parameters of the type of thermocouple used (Thermocouple Amplifier MAX31855 breakout board (MAX6675 upgrade) in my case)
@@ -23,7 +23,7 @@ max31855 = adafruit_max31855.MAX31855(spi, cs)
 @app.route('/')
 def main_page():
     tempNow = max31855.temperature
-    return tempNow
+    return render_template('index.html', temp = tempNow)
 
 
 if __name__ == '__main__':
